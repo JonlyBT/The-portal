@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+ <link rel="shortcut icon" type="image/x-icon" href="images/namnlös(2).png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Portal</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: radial-gradient(circle at center, #330057, #000000);
+      height: 100vh;
+      position: relative;
+      font-family: sans-serif;
+    }
+    .logo-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50% ,-50%) ;
+      text-align: center;
+      z-index: 10;
+    }
+    .logo-container img {
+      max-width: 200px;
+      transition: transform 0.5s ease-in-out;
+    }
+    .logo-container img:hover {
+      transform: rotate(360deg);
+    }
+    .login-button {
+      margin-top: 20px;
+      padding: 15px 30px;
+      background: linear-gradient(145deg, #380364, #610286);
+      color: #dd93ff;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 20px -5px #4d068f80;
+      transition: all 0.3s ease;
+      transform: translateY(0);
+    }
+    .login-button img {
+      width: 24px;
+      height: 24px;
+    }
+    .login-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px -10px #7509b4;
+      background: linear-gradient(145deg, #390052, #7b0fa7);
+    }
+    .coin {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+      animation: float 6s ease-in-out infinite;
+      transform: translate(-50% ,-50%) ;
+    }
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px) translateX(0px);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(20px) translateX(10px);
+        opacity: 0.7;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-container">
+    <br>
+    <a href="https://discord.com/oauth2/authorize?client_id=1384150971457732751&response_type=code&redirect_uri=https%3A%2F%2Fdiscord.gg%2FnjraT3kzxD&scope=email+identify+guilds.members.read+guilds.channels.read" class="login-button">
+      <img  src="images/disco.png" alt=""> 
+      Log in
+    </a>
+  </div>
+
+  <script>
+    const coinSrc = 'images/namnlös(2).png';
+    const particleCount = 50;
+
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('img');
+      particle.src = coinSrc;
+      particle.classList.add('coin');
+      particle.style.top = Math.random() * 100 + 'vh';
+      particle.style.left = Math.random() * 100 + 'vw';
+      particle.style.animationDuration = (4 + Math.random() * 4) + 's';
+      particle.style.opacity = 0.5 + Math.random() * 0.5;
+      particle.style.transform = `translate(-50% ,-50%) scale(${Math.random() * 0.5 + 0.5})`;
+      document.body.appendChild(particle);
+    }
+  </script>
+</body>
+</html>
